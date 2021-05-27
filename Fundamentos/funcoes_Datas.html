@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Funções Data</title>
+        <h1>Funções Data</h1>
+        <script>
+            
+            //Diferente de outros métodos, o date NECESSITA ser INSTANCIADO
+            var data = new Date()
+                //Todos os parâmetos de Date() são obtidos através da hora do sistema operacional do usuário
+            
+            //-----------------------------------------------------------------------------------
+            //.getDate() : Busca o DIA atual
+            document.write(data.getDate()) //Invocando e exibindo 
+
+            document.write('<br/>')  //Quebra de linha
+            //------------------------------------------------------------------------------------
+            //.getMonth() : Recuperar o MÊS atual, inclusive 0, ou seja, de 0 a 11
+            document.write(data.getMonth())     //Invocando e exibindo
+            document.write('<br/>') //Quebra de linha
+                //Podemos solucionar isto através de uma sintaxe como: 
+                document.write(data.getMonth() + 1) //Adicionamos 1 mês ao contador de meses
+            document.write('<br/>')
+            //------------------------------------------------------------------------------------
+            //.getFullYear(): Retorna o ANO atual
+            document.write(data.getFullYear())  //Invocando e exibindo 
+            document.write('<br/>')
+
+            //------------------------------------------------------------------------------------
+            //Exibindo uma data dinâmica, com o auxílio dos métodos:
+            document.write('A data atual é: ' + data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear())
+            
+        </script>
+    </head>
+
+    <body>  </body:>
+</html>
