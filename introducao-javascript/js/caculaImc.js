@@ -49,52 +49,12 @@ if (altura <= 0 || altura >= 3) {
 // Cálculo do IMC
 imcAttPaciente.textContent = "Altura e/ou peso inválidos!"
 if (alturaValida && pesoValido) {
-    imc = peso / (altura * altura);
-    imcAttPaciente.textContent = imc.toFixed(2);    
+    imc = calculaImc(peso, altura)
+    imcAttPaciente.textContent = imc   
+}
+
+var calculaImc = (peso,altura) => {
+    let imcResultado = peso / (altura * altura)
+    return imcResultado.toFixed(2)
 }
 }
-// Console.log de saída
-console.log(`O paciente: ${nome}, tem o peso: ${peso}, a altura: ${altura} e o IMC: ${imcAttPaciente.textContent}.`)    
-
-// Função de 
-var botaoAdicionar = document.querySelector("#adicionar-paciente")
-botaoAdicionar.addEventListener("click", (event) => {
-    event.preventDefault()
-    console.log("Eu fui clicado!")
-    let form = document.querySelector("#form-adiciona")
-
-    var nome = form.nome.value
-    var peso = form.peso.value
-    var altura = form.altura.value
-    var gordura = form.gordura.value
-
-    var pacienteTr = document.createElement("tr")
-
-    var nomeTd = document.createElement("td")
-    var pesoTd = document.createElement("td")
-    var alturaTd = document.createElement("td")
-    var gorduraTd = document.createElement("td")
-    var imcTd = document.createElement("td")
-
-    nomeTd.textContent = nome
-    pesoTd.textContent = peso
-    alturaTd.textContent = altura
-    gorduraTd.textContent = gordura
-
-    pacienteTr.appendChild(nomeTd)
-    pacienteTr.appendChild(pesoTd)
-    pacienteTr.appendChild(alturaTd)
-    pacienteTr.appendChild(gorduraTd)
-
-    var tabela = document.querySelector("#tabela-pacientes")
-
-    tabela.appendChild(pacienteTr)
-
-
-
-
-
-
-
-
-})
