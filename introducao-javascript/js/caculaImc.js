@@ -1,60 +1,62 @@
-let titulo = document.querySelector(".titulo")
-titulo.textContent = "Bernardo"
-titulo.textContent += ' Nutricionista'
+var titulo = document.querySelector(".titulo");
+titulo.textContent = "Aparecida Nutricionista";
 
 var pacientes = document.querySelectorAll(".paciente");
 
-// Laço p/ percorrermos todos os pacientes
-for (let pacientee of pacientes) {
-// Definindo o paciente como o id que representa o primeiro paciente. 
-let paciente = pacientee
+for (var paciente of pacientes) {
 
-// Definindo o nome do paciente conforme a classe que representa o nome da variável paciente(conforme o DOM)
-let nomePaciente = paciente.querySelector(".info-nome")
+    var tdPeso = paciente.querySelector(".info-peso");
+    var peso = tdPeso.textContent;
 
-// Definindo o peso do paciente conforme a classe que representa o peso da variável paciente(conforme o DOM)
-let pesoPaciente = paciente.querySelector(".info-peso")
+    var tdAltura = paciente.querySelector(".info-altura");
+    var altura = tdAltura.textContent;
 
-// Definindo a altura do paciente conforme a classe que representa o altura da variável paciente(conforme o DOM)
-let alturaPaciente = paciente.querySelector(".info-altura")
+    var tdImc = paciente.querySelector(".info-imc");
 
-// Capturando o valor do IMC do paciente presente no DOM
-var imcAttPaciente = paciente.querySelector(".info-imc")
+    var pesoEhValido = validaPeso(peso);
+    var alturaEhValida = validaAltura(altura);
 
-// Criando variáveis para armazenar o valor em texto
-var nome = nomePaciente.textContent
-var peso = pesoPaciente.textContent
-var altura = alturaPaciente.textContent
-var imc = imcAttPaciente.textContent
+    if (!pesoEhValido) {
+        console.log("Peso inválido!");
+        pesoEhValido = false;
+        tdImc.textContent = "Peso inválido";
+        paciente.classList.add("paciente-invalido");
+    }
 
-// Definindo valores booleanos para validação de peso e altura
-let alturaValida = true 
-let pesoValido = true
+    if (!alturaEhValida) {
+        console.log("Altura inválida!");
+        alturaEhValida = false;
+        tdImc.textContent = "Altura inválida";
+        paciente.classList.add("paciente-invalido");
+    }
 
-// Validação das medidas do paciente
-if (peso <= 0 || peso >= 1000) {
-    console.log("Peso inválido!");
-    pesoPaciente.textContent = "Peso inválido!";
-    pesoValido = false;
-    paciente.classList.add("paciente-invalido")
+    if (pesoEhValido && alturaEhValida) {
+        var imc = calculaImc(peso, altura);
+        tdImc.textContent = imc;
+    }
 }
 
-if (altura <= 0 || altura >= 3) {
-    console.log("Altura inválida!");
-    alturaPaciente.textContent = "Altura inválida!";
-    alturaValida = false;
-    paciente.classList.add("paciente-invalido")
+function calculaImc(peso, altura) {
+    var imc = 0;
+    imc = peso / (altura * altura);
+
+    return imc.toFixed(2);
 }
 
-// Cálculo do IMC
-imcAttPaciente.textContent = "Altura e/ou peso inválidos!"
-if (alturaValida && pesoValido) {
-    imc = calculaImc(peso, altura)
-    imcAttPaciente.textContent = imc   
+function validaPeso(peso) {
+
+    if (peso >= 0 && peso <= 1000) {
+        return true;
+    }
+    return false;
+    
 }
 
-var calculaImc = (peso,altura) => {
-    let imcResultado = peso / (altura * altura)
-    return imcResultado.toFixed(2)
-}
+function validaAltura(altura) {
+
+    if (altura >= 0 && altura <= 3.00) {
+        return true;
+    }
+    return false;
+    
 }
