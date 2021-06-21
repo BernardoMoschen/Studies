@@ -1,16 +1,24 @@
-let botaoAdicionarPacienteExterno = document.querySelector("#buscar-pacientes")
+var botaoAdicionar = document.querySelector("#buscar-pacientes")
 
-botaoAdicionarPacienteExterno.addEventListener("click", () => {
-    let xhr = new XMLHttpRequest ()
+botaoAdicionar.addEventListener("click",() => {
+    var xhr = new XMLHttpRequest()
+
     xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes")
 
-    xhr.addEventListener("load", () => {
-        let pacientes = JSON.parse(xhr.responseText) 
+    xhr.addEventListener("load", function() {
+        var erroAjax = document.querySelector("#erro-ajax")
 
-        pacientes.forEach((paciente) => {
-            adicionaPacienteNaTabela(paciente)
-        })
+        if (xhr.status == 200) {
+            var resposta = xhr.responseText
+            var pacientes = JSON.parse(resposta)
 
+            pacientes.forEach(function(paciente) {
+                adicionaPacienteNaTabela(paciente)
+            })
+        } else {
+            erroAjax.classList.remove("invisivel")
+        }
     })
-    xhr.send()
+
+    xhr.send();
 })

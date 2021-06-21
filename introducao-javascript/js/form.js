@@ -11,20 +11,14 @@ botaoAdicionar.addEventListener("click", (event) => {
 
 // Verifica se existe erros nos dados do paciente
     var erros = validaPaciente(pacientes)
-
     if (erros.length > 0) {
         exibeMensagensErro(erros)
         return
     }
 
-// Cria a Tr e a Td do paciente
-var pacienteTr = montaTr(paciente)
-
-// Adiciona o paciente na tabela
-    var tabela = document.querySelector("#tabela-pacientes")
-    tabela.appendChild(pacienteTr)
+    adicionaPacienteNaTabela(paciente)
     form.reset()
-
+    
 // Remove as mensagens de erro, caso seja inserido um paciente válido
 var mensagensErro = document.querySelector("#mensagens-erro");
 mensagensErro.innerHTML = "";
@@ -64,6 +58,16 @@ var montaTd = (dado, classe) => {
     td.textContent = dado
     td.classList.add(classe)
     return td
+}
+
+// Função p/ adicionar paciente na tabela
+let adicionaPacienteNaTabela = (paciente) => {
+// Cria a Tr e a Td do paciente
+var pacienteTr = montaTr(paciente)
+
+// Adiciona o paciente na tabela
+var tabela = document.querySelector("#tabela-pacientes")
+tabela.appendChild(pacienteTr)
 }
 
 // Função p/ validar o paciente
