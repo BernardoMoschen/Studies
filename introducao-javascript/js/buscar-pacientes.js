@@ -1,11 +1,16 @@
-let botaoAdicionar = document.querySelector("#buscar-pacientes")
+let botaoAdicionarPacienteExterno = document.querySelector("#buscar-pacientes")
 
-botaoAdicionar.addEventListener("click", () => {
+botaoAdicionarPacienteExterno.addEventListener("click", () => {
     let xhr = new XMLHttpRequest ()
     xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes")
 
     xhr.addEventListener("load", () => {
-        let resposta = JSON.parse(xhr.responseText) 
+        let pacientes = JSON.parse(xhr.responseText) 
+
+        pacientes.forEach((paciente) => {
+            adicionaPacienteNaTabela(paciente)
+        })
+
     })
     xhr.send()
 })
