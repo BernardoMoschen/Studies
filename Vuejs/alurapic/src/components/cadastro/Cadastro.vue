@@ -2,23 +2,25 @@
 
   <div>
     <h1 class="centralizado">Cadastro</h1>
+    <h2 class="centralizado">{{ foto.titulo }}</h2>
 
     <form @submit.prevent="grava()">
+
       <div class="controle">
         <label for="titulo">TÍTULO</label>
-        <input v-model.lazy="foto.titulo" id="titulo" autocomplete="off">
-            <h3 class="centrlizado">{{ foto.titulo }}</h3>
+        <input id="titulo" autocomplete="off" v-model.lazy="foto.titulo">
       </div>
 
       <div class="controle">
         <label for="url">URL</label>
-        <input v-model.lazy="foto.url" id="url" autocomplete="off">
-        <imagem-responsiva  v-show="foto.url" :url="foto.url" :titulo="foto.titulo"/>
+        <input id="url" autocomplete="off" v-model.lazy="foto.url">
+        <imagem-responsiva v-show="foto.url" :url="foto.url" :titulo="foto.titulo"/>
       </div>
 
       <div class="controle">
         <label for="descricao">DESCRIÇÃO</label>
-        <textarea v-model="foto.descricao" id="descricao" autocomplete="off" ></textarea>
+        <textarea id="descricao" autocomplete="off" v-model="foto.descricao">
+        </textarea>
       </div>
 
       <div class="centralizado">
@@ -34,7 +36,7 @@
 
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
 import Botao from '../shared/botao/Botao.vue';
-import Foto from '../../domain/foto/Foto.js';
+import Foto from '../../domain/foto/Foto';
 
 export default {
 
@@ -45,30 +47,25 @@ export default {
   },
 
   data() {
-    return {
 
-      foto: new Foto()
-    }
+      return {
+
+          foto: new Foto()
+      }
   },
 
   methods: {
 
-    grava() {
+      grava() {
 
-      console.log(this.foto);
-
-      this.foto = {
-          titulo: '',
-          url: '',
-          descricao: ''
-      };
-
-    }
+          this.$http
+            .post('http://localhost:3000/v1/fotos', this.foto)
+            .then(() => this.foto = new Foto(), err => console.log(err));
+      }
   }
 }
 
 </script>
-
 <style scoped>
 
   .centralizado {
@@ -93,5 +90,4 @@ export default {
   .centralizado {
     text-align: center;
   }
-
 </style>
