@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>If e Else</title>
+        <script>
+            if (false) {
+                document.write('Entrou no bloco de if(verdadeiro)')
+            } else {
+                document.write('Entrou no bloco de else (false)')
+            }
+            
+            var nota = prompt('Digite a nota do aluno: ')
+            var media = 7
+
+            if (nota >= media) {  //Apesar de tipos diferentes o JS converte a variável
+                alert('Aprovado')
+            } else {
+                alert('Reprovado')
+            }
+
+            if (9 != '9'){ //Desconsideração de um valor ser String e outro Int
+                alert('Valores diferentes')
+            } else {
+                alert('Valores idênticos')
+            }
+
+            if ('7' !== 7) {
+                alert('Valores diferentes')
+            } else {
+                alert('Valores idênticos')
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Condicionais if e else</h1>
+    </body:>
+</html>
