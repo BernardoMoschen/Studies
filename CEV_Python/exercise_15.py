@@ -1,0 +1,7 @@
+dias = float(input('Digite a quantidade de dias: '))
+km = float(input('Digite a quantidade de quilômetros rodados: '))
+precoDia = float(input('Digite o preço cobrado por dia: R$'))
+precoKm = float(input('Digite o preço cobrado por Km: R$'))
+pgTotal = (dias * precoDia) + (km * precoKm)
+print(f'\nO total a ser pago pelo aluguel é de R${pgTotal:.2f} .')
+print(f'Sendo R${dias * precoDia:.2f} pelos dias e R${km * precoKm:.2f} pelos Km rodados.')
