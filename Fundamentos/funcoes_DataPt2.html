@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Funções Data Pt2</title>
+        <h1>Funções Data Pt2</h1>
+        <script>
+            var data = new Date()
+        document.write(data.toString())
+        document.write('<br /><br /><hr />') 
+
+        //Adicionar e/ou Remover DIAS
+            //.setDate(): seta um parâmetro p/ o dia atual
+        data.setDate(data.getDate() + 5)  //Adiciona 5 dias ao dia atual
+        document.write(data.toString())
+        document.write('<hr/>')
+        data.setDate(data.getDate() + 720)  //O método é capaz de converter a quantidade de dias em anos/meses
+        document.write(data.toString())
+        document.write('<br /><br /><hr />') 
+
+        //-----------------------------------------------------------------------------------------------------
+        //Adicionar ou remover MESES
+             //.setMonth(): seta um parâmetro p/ o mês atual
+        data.setMonth(data.getMonth() + 2)  //Adiciona 2 meses ao mês atual
+        document.write(data.toString())
+        document.write('<br /><br /><hr />') 
+
+        //-----------------------------------------------------------------------------------------------------
+        //Adicionar ou remover ANOS
+             //.setFullYear(): seta um parâmetro p/ o ano atual
+        data.setFullYear(data.getFullYear() + 7)  //Adiciona 7 anos ao ano atual
+        document.write(data.toString())
+        document.write('<br /><br /><hr />') 
+            
+        </script>
+    </head>
+
+    <body>  </body:>
+</html>

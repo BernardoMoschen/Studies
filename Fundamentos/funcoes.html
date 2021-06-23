@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Funções em JavaScript</title>
+        <script>
+            //Funções são reconhecidas antes da execução do script
+                //Portanto, podem ser declaradas em qualquer altura do código.
+
+            //Funções podem ser do tipo:
+                // Void - sem retorno
+                // Return - com retorno
+
+            function calcularAreaTerreno(largura, comprimento) { //Escopo - function nomeFunção (paramêtros)
+                //Lógica
+                var area = largura * comprimento
+                document.write('Função sem retorno > ') 
+                document.write('A área total é: ' + area)   //Função do tioo VOID, pois NÃO HÁ retorno
+            }
+            calcularAreaTerreno(15, 10) //Chamando a função sem retorno, com os paramêtros 15,10
+
+
+            function mesmaFuncaoComRetorno(largura, comprimento) { //Escopo - function nomeFunção (paramêtros)
+                //Lógica
+                var area = largura * comprimento    //Função do tipo RETURN, pois HÁ RETORNO
+                return area  //returns podem retornar qualquer tipo de valor (booleano, número, caracters, ...)
+            }   
+            var largura = prompt('Digite a largura: ')
+            var comprimento = prompt('Digite o comprimento: ')
+            document.write('<br />Função com retorno > ')
+            document.write('A área total é: ' + mesmaFuncaoComRetorno(largura, comprimento) + '.')
+
+        </script>
+    </head>
+
+    <body>
+        <h1>Funções em JavaScript</h1>
+    </body:>
+</html>

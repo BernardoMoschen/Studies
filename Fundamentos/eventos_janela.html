@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Eventos Janela/Frame JavaScript</title>
+        <h1>Eventos Janela/Frame JavaScript</h1>
+
+        <script>
+            //Ambas vão no <body> 
+            //onresize() : Dispara ao redimisionar-se a janela
+            //onscroll(): Dispara ao scrollar-se a roda do mouse
+           
+           function acao1 () {
+               alert('Evento onkeydown disparado.')
+           }
+           function acao2 () {
+               alert('Evento onkeyup disparado.')
+           }    
+           
+        </script>
+    </head>
+
+    <body onresize="console.log('Evento de onresize disparado')"; onscroll="console.log('Evento de onscrolldisparado')">
+    <div style="height: 3000px; width: 125px; background: #ccc;"></div>
+  </body:>
+</html>

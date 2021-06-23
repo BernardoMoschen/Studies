@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Funções Strings</title>
+        <script>
+
+            var teste = 'Funções Strings'  //Definindo uma variável p/ testes
+            
+            //Propriedade length: testa o tamanho da string, começa em 0, há 2 formas comuns de invocarmos a propriedade:
+            'Funções Strings'.length 
+                //OU
+            teste.length
+
+            document.write(teste.length)  //Exibindo na tela
+            document.write('Funções Strings'.length) //Exibindo na tela
+
+            //-------------------------------------------------------------------------------------------------------------------
+            //charAt(): Exibe o caractere correspondente ao índice
+            teste.charAt(10) //Invocando a função
+            document.write(teste.charAt(10)) //Exibindo na tela
+
+
+            //-------------------------------------------------------------------------------------------------------------------
+            //replace(): Pesquisará uma cadeira de caracteres passada por parâmetros, e caso a ache,
+            // a substituirá por outra, também passada via parâmetro
+            teste.replace('Strings', 'Replace') //Invocando a função
+            document.write(teste.replace('Strings', 'Replace')) //Exibindo na tela
+
+
+            //-------------------------------------------------------------------------------------------------------------------
+            //substr(): Recupera caracteres de uma string, apartir (inclusive) de um parâmetro até outro parâmetro determinado
+            teste.substr(9, 12) //Invocando o método
+            document.writeln(teste.substr(9,12)) //Recuperamos e exibimos determinados caracteres, de acordo com os parâmetros passados
+
+
+            //-------------------------------------------------------------------------------------------------------------------
+            //.toLowerCase(): transforma os caracteres em minúsculo
+            teste.toLowerCase()  //Invocando o método
+            document.write(teste.toLowerCase()) //Exibindo na tela
+
+
+            //-------------------------------------------------------------------------------------------------------------------
+            //.toUpperCase(): transforma os caracteres em maiúsculo
+            teste.toUpperCase()  //Invocando o método
+            document.write(teste.toUpperCase()) //Exibindo na tela
+
+        
+            //-------------------------------------------------------------------------------------------------------------------
+            //.trim(): Remove os espaços nas extremidades da string
+            var nome = ' Funções Strings ' //Atualizando a string p/ q se possa testar a função
+            nome.trim() //Invocando o método
+            document.write('-' + nome.trim() + '-')  //Exibindo na tela
+        </script>
+    </head>
+
+    <body>
+        <h1>Funções Strings</h1>
+    </body:>
+</html>
