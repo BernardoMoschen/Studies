@@ -55,6 +55,10 @@ export default {
   transition: opacity .4s;
 }
 
+.painel-conteudo {
+    overflow: hidden;
+}
+
   * {
       box-shadow: 5px 5px 5px;
   }
