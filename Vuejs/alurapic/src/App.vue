@@ -1,5 +1,3 @@
-<!-- alurapic/src/App.vue -->
-
 <template>
   <div class="corpo">
 
