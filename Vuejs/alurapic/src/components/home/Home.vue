@@ -22,13 +22,18 @@
 import Painel from '../shared/painel/Painel.vue';
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
 import Botao from '../shared/botao/Botao.vue'
+import transform from '../../directives/Transform';
 
 export default {
 
   components: {
     'meu-painel' : Painel,
     'imagem-responsiva' : ImagemResponsiva,
-    'meu-botao' : Botao
+    'meu-botao' : Botao,
+  },
+
+  directives: {
+    'meu-transform': transform,
   },
 
   data() {
