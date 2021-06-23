@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1 class="centralizado">Alurapic</h1>
+        <p v-show="mensagem" class="centralizado"> {{ mensagem }} </p>
         <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre pelo título da foto">
         <ul class="lista-fotos">
           <li class="lista-fotos-item" v-for="foto in fotosComFiltro">
@@ -59,11 +60,20 @@ export default {
 
   methods: {
 
-    remove(foto) {
-
-      if(confirm('Confirma operação ?')) {
-            alert('Remover a foto ' + foto.titulo)
-      }
+      remove(foto) {
+      this.$http
+        .delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+        .then(
+          () => {
+            let indice = this.fotos.indexOf(foto);
+            this.fotos.splice(indice, 1);
+            this.mensagem = 'Foto removida com sucesso'
+          },
+          err => {
+            this.mensagem = 'Não foi possível remover a foto';
+            console.log(err);
+          }
+        )
     }
   },
 
