@@ -7,14 +7,39 @@
     <title>Expressões Regulares</title>
 <script>
 
+// Declaração:
+    // Pode-se definir uma RegExp de uma forma verbal: declara-se a RegExp na instanciação de um objeto.
+    //Há necessidade de escape de '\'.
+        // var suaVariável = new RegExp('suaRegExp', modificadoresDaRegExp').
+    
+    //Ou de uma forma menos literal: declara-se a RegExp entre '/ /'. 
+    //Não há necessidade de escape de '\'.
+    //   /suaRegExp/modificadoresDaRegExp.
+
+// Alguns parâmetros:
+    // g - aplica a RegExp globalmente, ou seja, quantas vezes aparecer.
+    // i - desabilita case insensitivity.
+    // c - abilita case sensitivity.
+
+// Alguns métodos:
+    // .test - testa a RegExp no alvo e retorna true ou false.
+    // .exec - testa a RegExp e retorna as correspondências encontradas.
+    
 // Classses:
     // \t - é um tab.
     // \r - é carriage return.  
     // \n - é newline.
     // \f - é form feed.
     // \w - é um word char ([A-Za-z0-9_]).
-    // \s - é um whitespace ([ \t\r\n\f]).
+    // \W - é um non-word char, ou seja, tudo que não é um word char.
     // \d - são todos os digítos ([0-9])
+    // \D - é um non-digit, ou seja, tudo que não é dígito.
+    // \s - é um whitespace ([ \t\r\n\f]).
+
+// Negação:
+    // ^ - o símbolo '^' realiza a negação sobre o que vem em seguida, ou seja, nega/exclui o sucessor.
+        /* Exs: [^>]+ = impede o selecionamento de '>'.
+                
 
 // Seletores:
     // [A-Z] - significa de A até Z, sempre maiúscula.
