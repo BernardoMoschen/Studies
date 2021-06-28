@@ -33,6 +33,12 @@
     // {n,} - no minímo n vezes.
     // {n,m} - no minímo n vezes, no máximo m vezes.
 
+// Âncoras: Uma âncora não casa caracteres como as classes fazem, e nem definem quantidades. Âncoras marcam uma posição específica no alvo, por isso não é possível combiná-las com um quantifier.
+    // b - é uma âncora que seleciona um word boundary, isso é o início ou fim da palavra.
+    // B - NOT word boundary, a seleção deve aparecer dentro de uma palavra, nunca no ínicio ou no fim.
+    // ^ - seleciona o início da string alvo., garante que nada deve vir antes da âncora.
+    // $ - seleciona o fim do alvo, garante que nada deve vir depois da âncora.
+
 </script>
 </head>
 <body>
