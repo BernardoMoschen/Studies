@@ -1,6 +1,6 @@
 <template>
     <nav>
-      <ul>
+      <ul>       
           <li v-for="rota in rotas">
             <router-link :to="rota.path ? rota.path : '/'">
               {{ rota.titulo }}

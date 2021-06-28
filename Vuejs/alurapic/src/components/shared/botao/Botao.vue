@@ -9,14 +9,14 @@ export default {
     props: {
 
         tipo: {
-            required: true,
+            required: true, 
             type: String
         },
 
         rotulo: {
-            required: true,
+            required: true, 
             type: String
-        },
+        }, 
 
         confirmacao: Boolean,
         estilo: String
@@ -49,22 +49,8 @@ export default {
 }
 </script>
 
-<style>
-    .botao {
-        display: inline-block;
-        padding: 10px;
-        border-radius: 3px;
-        margin: 10px;
-        font-size: 1.2em;
-    }
+<style lang="sass">
 
-    .botao-perigo {
-        background: firebrick;
-        color: white;
-    }
-
-    .botao-padrao {
-        background: darkcyan;
-        color: white;
-    }
+    @import './Botao.scss';
+  
 </style>
