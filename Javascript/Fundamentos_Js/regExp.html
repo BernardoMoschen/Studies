@@ -28,6 +28,8 @@
     // ? - zero ou mais vezes.
     // + - uma ou mais vezes.
     // * - zero ou mais vezes.
+        /* OBS: todos os quantificadores são gananciosos por padrão, ou seja, irão SEMPRE selecionar o Nº MÁXIMO de caracteres.
+    para deixarmos o quantificador preguiçoso devemos adicionar uma '?' após o quantificador.
 
     // {n} - exatamente n vezes.
     // {n,} - no minímo n vezes.
@@ -42,7 +44,7 @@
 // Grupos:
     // (0123) - tudo que está entre parentêses é um grupo.
     // (?:123) - Non-capturing-group = ao usar '?:' no ínicio de um grupo, tornamos ele opcional (pode ou não aparecer).
-    // (alfa|beta) - grupo seletivo, um OU outro (alfa OU beta).s
+    // (alfa|beta) - grupo seletivo, um OU outro (alfa OU beta).
 
 
 </script>
