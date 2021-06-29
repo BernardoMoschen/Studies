@@ -1,55 +1,42 @@
-<template>
-  <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-bytebank">
-      <a class="navbar-brand" href="#">ByteBank</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <router-link class="nav-link" to="/">Home</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/gerentes" class="nav-link">Gerentes</router-link>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link" @click.prevent="efetuarLogout">Logout</a>
-          </li>
-        </ul>
+ <template>
+  <div class="container">
+    <h1>Novo usuário</h1>
+    <form @submit.prevent="enviarFormulario">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" v-model="usuario.nome" />
       </div>
-    </nav>
-    <router-view />
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" v-model="usuario.email" />
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" v-model="usuario.senha" />
+      </div>
+      <button class="btn btn-primary" type="submit">Salvar</button>
+    </form>
   </div>
 </template>
-
-<script>
+ 
+ <script>
 export default {
+  data: function() {
+    return {
+      usuario: {
+        nome: "",
+        senha: "",
+        email: ""
+      }
+    };
+  },
   methods: {
-    efetuarLogout() {
-      localStorage.removeItem("token");
-      this.$router.push({ name: "login" });
+    enviarFormulario() {
+      this.$http
+        .post("auth/register", this.usuario)
+        .then(resposta => console.log(resposta))
+        .catch(erro => console.log(erro))
     }
   }
 };
 </script>
-
-<style>
-.navbar {
-  background: #27ae60;
-}
-.navbar-bytebank a {
-  color: #fff;
-}
-.navbar-bytebank a:hover {
-  color: #000;
-}
-</style>
