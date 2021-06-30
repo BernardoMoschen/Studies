@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router' 
-import provedor from '@/provedor.js'
+import store from '@/store.js'
 
 Vue.use(VueRouter)
 
@@ -39,16 +39,17 @@ const routes = [
     }
   }
 ]
-
-const router = new VueRouter({
-  routes
-})
-
-router.beforeEach((routeTo, routeFrom, next) => {
-  if (!routeTo.meta.publica && !provedor.state.token) {
-      return next({ path: '/login' })
-  }
-  next()
-})
-
-export default router
+  const router = new VueRouter({
+    routes
+  })
+  
+  router.beforeEach((routeTo, routeFrom, next) => {
+    if (!routeTo.meta.publica && !store.state.token) {
+      return next({
+        path:'/login'
+      });
+    }
+    next();
+  })
+  
+  

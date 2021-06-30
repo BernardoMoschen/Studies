@@ -1,44 +1,31 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-bytebank">
-      <a class="navbar-brand" href="#">ByteBank</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <NavBarLogado v-if="usuarioEstaLogado"/>
-        <NavBarDeslogado v-else/>
-      </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-bytebank">
+    <a class="navbar-brand" href="#">ByteBank</a>
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <BarraNavegacaoQuandoLogado v-if="usuarioEstaLogado" />
+      <BarraNavegacaoQuandoDeslogado v-else />
+    </div>
+  </nav>
 </template>
 
 <script>
-
-import NavBarLogado from '@/components/Navbar/NavBarLogado.vue'
-import NavBarDeslogado from '@/components/Navbar/NavBarDeslogado.vue'
+import BarraNavegacaoQuandoLogado from "./BarraNavegacaoQuandoLogado";
+import BarraNavegacaoQuandoDeslogado from "./BarraNavegacaoQuandoDeslogado";
+import { mapGetters } from 'vuex'
 
 export default {
-
   components: {
-      NavBarLogado,
-      NavBarDeslogado,
+    BarraNavegacaoQuandoLogado,
+    BarraNavegacaoQuandoDeslogado
   },
-
   computed: {
-    usuarioestaLogado () {
-        return Boolean(this.$store.state.token)
-    }
-    }
+    ...mapGetters(['usuarioEstaLogado'])
+  }
 };
 </script>
-
 <style>
 .navbar {
   background: #27ae60;
