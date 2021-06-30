@@ -2,7 +2,7 @@ import Lance from '@/components/Lance'
 import { mount } from '@vue/test-utils'
 
 
-describe('Um lance sem valor minimo', () => {
+describe('Um lance sem valor mínimo', () => {
   test('verifica se há wrapper', () =>{
     const wrapper = mount(Lance)
     expect(wrapper).toBeTruthy()
@@ -43,8 +43,8 @@ describe('Um lance sem valor minimo', () => {
   })
 })
 
-describe('Um lance com valor minimo', () => {
-  test('todos os lances devem possuir valor maior que o minimo informado', () => {
+describe('Um lance com valor mínimo', () => {
+  test('todos os lances devem possuir valor maior que o mínimo informado', () => {
     const wrapper = mount(Lance, {
       propsData: {
         lanceMinimo: 300
@@ -57,7 +57,7 @@ describe('Um lance com valor minimo', () => {
     expect(lancesEmitidos).toHaveLength(1)
   })
 
-  test('emite o valor esperado de um lance valido', () => {
+  test('emite o valor esperado de um lance válido', () => {
     const wrapper = mount(Lance, {
       propsData: {
         lanceMinimo: 300
@@ -69,5 +69,6 @@ describe('Um lance com valor minimo', () => {
     const lancesEmitidos = wrapper.emitted('novo-lance')
     const valorDoLance = parseInt(lancesEmitidos[0][0])
     expect(valorDoLance).toBe(400)
+
   })
 })
