@@ -18,12 +18,12 @@
 </template>
 
 <script>
-export default {
-    methods: {
-        efetuarLogout() {
-        localStorage.removeItem("token");
-        this.$router.push({ name: "login" });
+    export default {
+        methods: {
+            efetuarLogout () {
+                this.$store.commit('DESLOGAR_USUARIO')
+                this.$router.push({ name: 'login' })
+            }
         }
-    },
-}
+    }
 </script>

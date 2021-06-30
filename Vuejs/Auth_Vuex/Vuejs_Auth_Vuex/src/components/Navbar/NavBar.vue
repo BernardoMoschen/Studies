@@ -32,10 +32,10 @@ export default {
   },
 
   computed: {
-    usuarioEstaLogado() {
-      return Boolean(localStorage.getItem('token'))
-    },
-  }
+    usuarioestaLogado () {
+        return Boolean(this.$store.state.token)
+    }
+    }
 };
 </script>
 
