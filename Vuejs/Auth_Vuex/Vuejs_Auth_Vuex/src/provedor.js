@@ -4,7 +4,7 @@ import http from '@/http'
 Vue.use(Vuex)
 
 const estado = {
-    token: null,
+    token: localStorage.getItem('token') || '',
     usuario: {}
 }
 
@@ -28,6 +28,7 @@ const actions = {
                     token: response.data.access_token,
                     usuario: response.data.user
                 })
+                localStorage.setItem('token', response.data.access_token)
                 resolve(response.data)
             })
             .catch(err => {
