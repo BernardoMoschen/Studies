@@ -15,5 +15,6 @@ $exponenciacao = 7 ** 3;
 $resto = 11 % 2;
 $verdadeiro = true;
 $falso = false;
+$TEXTO = "Olá mundo!";
 
 echo gettype($verdadeiro);
