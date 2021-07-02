@@ -2,6 +2,10 @@
 
 /* Realizamos a declaração de strigns em PHP utilizando aspas simples ou duplas.
 
+=> Diferenças entre tipos de aspas:
+    - Aspas simples ('') são tidas diretamente como textos.
+    - Aspas duplas ("") são realmente interpretas, desta forma, se houver variáveis ou caracteres entre o texto, o interpretador do PHP os levará em consideração.
+
 => Concatenação:
     Feita por '.' entre as variáveis.
 ex: 'João tem' . $idade . ' anos.;
