@@ -2,6 +2,11 @@
 
 /* Arrays associativos são a solução para quando precisamos 'nomear' um 
 índice correspondente a um valor.
+
+O PHP só aceita os tipos String ou Númericos como valores de índice, 
+do contrário ele tentará converter o índice para uma String ou um valor númerico.
+
+Arrays associativos também são chamados de Mapas ou Dicionários.
 */
 
 // Declaração:
