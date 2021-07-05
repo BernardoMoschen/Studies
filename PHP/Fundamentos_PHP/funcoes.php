@@ -2,26 +2,12 @@
 
 // Funções são como rotinas, porém após sua execução elas retornam um valor.
 
-function exibeMensagem($mensagem){
-    echo $mensagem . PHP_EOL;
-}
-
-function sacar($conta, $valorASacar)
-{
-    if ($valorASacar > $conta['saldo']) {
-        exibeMensagem("Você não pode sacar este valor");
-    } else {
-        $conta['saldo'] -= $valorASacar;
-    }
-    return $conta;
-}
-
 $contasCorrentes = [
     '123.456.789-10' => [
         'titular' => 'Maria',
         'saldo' => 10000
     ],
-    '123.456.789-11' => [
+    '123.456.689-11' => [
         'titular' => 'Alberto',
         'saldo' => 300
     ],
@@ -31,9 +17,48 @@ $contasCorrentes = [
     ]
 ];
 
-$contasCorrentes['123.456.789-10'] = sacar($contasCorrentes['123.456.789-10'], 500); // Sacar 500 da conta da Maria
-$contasCorrentes['123.456.789-11'] = sacar($contasCorrentes['123.456.789-11'], 500); // Sacar 500 da conta do Alberto
+// Função que apenas aceita os parâmetros em tipos já definidos, assim como também retorna um tipo definido de variável.
+function sacar(array $conta, float $valorASacar): array 
+{
+    if ($valorASacar > $conta['saldo']) {
+        exibeMensagem("Você não tem saldo suficiente");
+    } else {
+        $conta['saldo'] -= $valorASacar;
+    }
+
+    return $conta;
+}
+
+function exibeMensagem(string $mensagem)
+{
+    echo $mensagem . PHP_EOL;
+}
+
+function depositar(array $conta, float $valorADepositar): array
+{
+    if ($valorADepositar > 0) {
+        $conta['saldo'] += $valorADepositar;
+    } else {
+        exibeMensagem("Depositos precisam ser positivos");
+    }
+    return $conta;
+}
+
+$contasCorrentes['123.456.789-10'] = sacar(
+    $contasCorrentes['123.456.789-10'],
+    500
+);
+
+$contasCorrentes['123.456.689-11'] = sacar(
+    $contasCorrentes['123.456.689-11'],
+    200
+);
+
+$contasCorrentes['123.256.789-12'] = depositar(
+    $contasCorrentes['123.256.789-12'],
+    900
+);
 
 foreach ($contasCorrentes as $cpf => $conta) {
-    exibeMensagem($cpf . " " . $conta['titular'] . ' ' . $conta['saldo']);
+    exibeMensagem("$cpf → conta[titular] → $conta[saldo]");
 }
