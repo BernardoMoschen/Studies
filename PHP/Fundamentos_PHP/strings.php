@@ -6,6 +6,13 @@
     - Aspas simples ('') são tidas diretamente como textos.
     - Aspas duplas ("") são realmente interpretas, desta forma, se houver variáveis ou caracteres entre o texto, o interpretador do PHP os levará em consideração.
 
+=> Strings Complexas:
+    - Funcionam de maneira similar a uma string de aspas duplas, ou seja, exibem variáveis em seu entorno.
+      Porém, adicionam algumas funcionalidades as strings, além de manter uma padronização no código(aspas simples).
+    
+    - Declaração:
+     "$cpf {$conta['titular']} {$conta['saldo']}
+
 => Concatenação:
     Feita por '.' entre as variáveis.
 ex: 'João tem' . $idade . ' anos.;
