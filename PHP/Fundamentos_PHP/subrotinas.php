@@ -1,6 +1,6 @@
 <?php
 /* Subrotinas são execuções de funções que não possuem um retorno (return) de valor,
- ou seja, funções que apenas fazem sua rotina.
+ ou seja, funções que apenas fazem sua rotina, executando um código isolado.
 */
 
 function exibeMensagem($mensagem){
