@@ -18,7 +18,7 @@ $contasCorrentes = [
 ];
 
 // Utiização do forEach
-foreach ($contasCorrents as $cpf => $conta){ // Atribuindo o nome do índice a váriavel $cpf
+foreach ($contasCorrentes as $cpf => $conta){ // Atribuindo o nome do índice a váriavel $cpf
     echo $cpf . PHP_EOL; // Acessando o índice
     echo $conta['titular'] . PHP_EOL; // Acessando a o índice titular
 }
