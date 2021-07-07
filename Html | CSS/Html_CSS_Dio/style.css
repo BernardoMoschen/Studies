@@ -1,0 +1,19 @@
+body {
+    background-color: gray;
+}
+
+#titile, .subtitle, .postTtile {
+    color: blue;
+}
+
+.postTtile {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.post {
+    background:honeydew;
+    padding: 10px;
+    border: 3px solid black;
+    margin: 15px;
+}
