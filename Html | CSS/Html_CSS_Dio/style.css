@@ -1,19 +1,59 @@
 body {
-    background-color: gray;
+    background-color: silver;
+    font-family: Verdana;
+    width: 900px;
+}
+
+.photo {
+    border: 5px solid crimson;
+    border-radius: 50%;
 }
 
 #titile, .subtitle, .postTtile {
-    color: blue;
+    color: lightcoral;
 }
 
-.postTtile {
+#title {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: line-through;
+    color:darkblue
+}
+
+.postTitle {
     font-size: 16px;
     font-style: italic;
+    margin: 0px;
+    margin-bottom: 15px;
 }
 
 .post {
     background:honeydew;
-    padding: 10px;
+    padding: 15px;
     border: 3px solid black;
-    margin: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.postContent {
+    margin: 0px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.postImage {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.contactList {
+    list-style-type: none;
+    padding-left: 15px;
+} 
+
+.contactList li a {
+    text-decoration: none;
 }
