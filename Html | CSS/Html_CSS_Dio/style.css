@@ -1,7 +1,8 @@
 body {
     background-color: silver;
     font-family: Verdana;
-    width: 900px;
+    max-width: 900px;
+    margin: auto;
 }
 
 .photo {
@@ -42,6 +43,7 @@ a {
     margin: 0px;
     margin-bottom: 15px;
     text-transform: capitalize;
+    text-align: justify;
 }
 
 .postImage {
