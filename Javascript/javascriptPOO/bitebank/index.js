@@ -11,7 +11,13 @@ class contaCorrente {
         if(this.saldo >= valor) {
             this.saldo -= valor;
         }
-    }   
+    };
+
+    depositar(valor){
+        if(this.saldo >= valor) {
+            this.saldo += valor;
+        }
+    };
 }
 
 const cliente1 = new Cliente();
