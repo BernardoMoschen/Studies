@@ -1,34 +1,3 @@
-class Cliente {
-    nome;
-    cpf;
-    
-    constructor(nome, cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
-    }
-}
-
-class contaCorrente {
-    #saldo;
-
-    constructor(agencia){
-        this.#saldo = 0
-        this.agencia = agencia;
-    }
-
-    sacar(valor){
-        if(this.#saldo >= valor) {
-            this.#saldo -= valor;
-        }
-    }
-
-    depositar(valor){
-        if(this.#saldo >= 0) {
-            this.#saldo += valor;
-        }
-    }
-}
-
 const cliente1 = new Cliente();
 cliente1.nome = "Bernardo";
 cliente1.cpf = 11223344556;
