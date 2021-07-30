@@ -6,7 +6,11 @@ export class Conta {
     constructor(cliente, agencia, saldo) {
         this.#cliente = cliente;
         this.#agencia = agencia;
-        this.#saldo = saldo;
+        if(saldo){
+            this.#saldo = saldo;
+        } else {
+            this.#saldo = 0;
+        }
     }
 
     set cliente(novoCliente) {
