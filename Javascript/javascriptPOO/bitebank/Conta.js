@@ -1,25 +1,37 @@
 export class Conta {
-    #saldo;
     #cliente;
     #agencia;
+    #saldo;
 
-    constructor(saldoInicial, cliente, agencia) {
-        this.#saldo = saldoInicial;
+    constructor(cliente, agencia, saldo) {
         this.#cliente = cliente;
         this.#agencia = agencia;
+        this.#saldo = saldo;
+    }
+
+    set cliente(novoCliente) {
+        if (novoCliente instanceof Cliente) {
+            this.#cliente = novoCliente;
+        }
+    }
+
+    set saldo(valor) {
+        this.#saldo = valor;
     }
 
     get cliente() {
         return this.#cliente;
     }
 
+    get agencia() {
+        return this.#agencia;
+    }
+
     get saldo() {
         return this.#saldo;
     }
 
-    get agencia() {
-        return this.#agencia;
-    }
+   
     sacar(valor){
         if(Number.parseFloat(valor) && this.#saldo >= valor) {
             this.#saldo -= valor;
@@ -28,7 +40,7 @@ export class Conta {
 
     depositar(valor){
         if(Number.parseFloat(valor) && this.#saldo >= 0) {
-            this.#saldo += valor;
+            this.saldo += valor;
         }
     }
 

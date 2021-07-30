@@ -1,28 +1,8 @@
-export class ContaPoupanca {
-    #saldo;
-    #cliente;
-    #agencia;
+import { Conta } from "./Conta.js";
 
-    constructor(saldoInicial, cliente, agencia) {
-        this.#saldo = saldoInicial;
-        this.#cliente = cliente;
-        this.#agencia = agencia;
-    }
+export class ContaPoupanca extends Conta{
 
-    sacar(valor){
-        if(Number.parseFloat(valor) && this.#saldo >= valor) {
-            this.#saldo -= valor;
-        }
-    }
-
-    depositar(valor){
-        if(Number.parseFloat(valor) && this.#saldo >= 0) {
-            this.#saldo += valor;
-        }
-    }
-
-    transferir(valor, conta) {
-        const valorSacado = this.sacar(valor);
-        conta.depositar(valorSacado);
+    constructor(cliente, agencia, saldo) {
+        super(cliente, agencia, saldo);
     }
 }
