@@ -3,7 +3,7 @@ export class Cliente {
     cpf;
     
     constructor(nome, cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
+        this.nome = undefined;
+        this.cpf = undefined;
     }
 }
