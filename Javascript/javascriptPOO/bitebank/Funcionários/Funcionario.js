@@ -11,6 +11,14 @@ export class Funcionario {
         this.#cpf = cpf;
 
         this.#bonificacao = 1;
-        this.#senha;
+        this.#senha = null;
+    }
+
+    get senha() {
+        return this.#senha; 
+    }
+
+    cadastrarSenha(senha){
+        this.#senha = senha;
     }
 }
