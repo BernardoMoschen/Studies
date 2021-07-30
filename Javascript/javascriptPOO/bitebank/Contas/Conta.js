@@ -4,6 +4,9 @@ export class Conta {
     #saldo;
 
     constructor(cliente, agencia, saldo) {
+        if (this.constructor == Conta) {
+            throw new TypeError("Você não pode instanciar uma classe abstrata!");
+        }
         this.#cliente = cliente;
         this.#agencia = agencia;
         if(saldo){
