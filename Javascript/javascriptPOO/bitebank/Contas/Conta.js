@@ -2,6 +2,7 @@ export class Conta {
     #cliente;
     #agencia;
     #saldo;
+    static numeroDeContas = 0;
 
     constructor(cliente, agencia, saldo) {
         if (this.constructor == Conta) {
@@ -14,6 +15,7 @@ export class Conta {
         } else {
             this.#saldo = 0;
         }
+        Conta.numeroDeContas += 1;
     }
 
     set cliente(novoCliente) {
@@ -39,15 +41,20 @@ export class Conta {
     }
 
    
-    sacar(valor, taxa){
-        if(Number.parseFloat(valor) && this.#saldo >= valor) {
-            if(taxa){
-                const valorSacado = taxa * valor;
-                this.#saldo -= valorSacado.toFixed(2);
-            } else {
-                this.#saldo -= valor;
-            }
+    sacar(valor, taxa) {
+        if (this.caller == Conta) {
+            throw new Error("O método sacar da conta é abstrato!")
         }
+     }
+ 
+     sacar(valor, taxa){
+         const valorSacado = taxa * valor;
+         if (this.#saldo >= valorSacado) {
+             this.#saldo -= valorSacado.toFixed(2);
+             return valorSacado;
+         }
+ 
+         return 0;
     }
 
     depositar(valor){
