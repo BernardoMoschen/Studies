@@ -1,22 +1,13 @@
 import { Cliente } from "./Cliente.js";
 
-export class contaCorrente {
+export class ContaCorrente {
     #saldo;
     agencia;
     #cliente;
 
-    constructor(){
-        this.#saldo = 0;
-        this.agencia = undefined;
-        this.#cliente = undefined;
-    }
-
     set cliente(novoCliente) {
         if (novoCliente instanceof Cliente) {
             this.#cliente = novoCliente;
-        } 
-        else {
-            console.log('Atribuição inválida.');
         }
     }
 
@@ -26,6 +17,12 @@ export class contaCorrente {
 
     get saldo() {
         return this.#saldo;
+    }
+
+    constructor(agencia, cliente){
+        this.#saldo = 0;
+        this.agencia = agencia;
+        this.#cliente = cliente;
     }
 
     sacar(valor){
