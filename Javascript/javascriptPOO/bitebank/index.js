@@ -27,5 +27,6 @@ console.log(cC2);
 
 cC2.transferir(200, cC1);
 
-cC1.exibeSaldo();
-cC2.exibeSaldo();
+console.log(cC1.saldo);
+console.log(cC2.saldo);
+
