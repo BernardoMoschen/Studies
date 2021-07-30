@@ -1,10 +1,14 @@
-export class ContaPoupança {
+export class ContaPoupanca {
+    #saldo;
+    #cliente;
+    #agencia;
+
     constructor(saldoInicial, cliente, agencia) {
         this.#saldo = saldoInicial;
         this.#cliente = cliente;
         this.#agencia = agencia;
     }
-    
+
     sacar(valor){
         if(Number.parseFloat(valor) && this.#saldo >= valor) {
             this.#saldo -= valor;
