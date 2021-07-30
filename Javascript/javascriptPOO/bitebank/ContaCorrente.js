@@ -1,9 +1,6 @@
 import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente {
-    #saldo;
-    agencia;
-    #cliente;
     static numeroDeContas = 0;
 
     set cliente(novoCliente) {
