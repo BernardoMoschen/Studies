@@ -1,10 +1,10 @@
 import { Cliente } from "./Clientes/Cliente.js";
 import { Gerente } from "./Funcionários/Gerente.js";
-import { Diretor } from "./Funcionários/Gerente.js";
+import { Diretor } from "./Funcionários/Diretor";
 
 
 const diretor1 = new Diretor("Rodrigo", 1000, 778899112233)
-const geretir1 = new Diretor("Alberto", 500, 112233445566)
+const geretir1 = new Gerente("Alberto", 500, 112233445566)
 
 
 
