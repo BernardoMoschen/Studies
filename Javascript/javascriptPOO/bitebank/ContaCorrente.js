@@ -1,9 +1,10 @@
-class contaCorrente {
+export class contaCorrente {
     #saldo;
+    agencia;
+    cliente;
 
-    constructor(agencia){
-        this.#saldo = 0
-        this.agencia = agencia;
+    constructor(){
+        this.#saldo = 0;
     }
 
     sacar(valor){
