@@ -1,3 +1,5 @@
+import { Cliente } from "./Cliente.js";
+
 export class contaCorrente {
     #saldo;
     agencia;
@@ -27,13 +29,13 @@ export class contaCorrente {
     }
 
     sacar(valor){
-        if(this.#saldo >= valor) {
+        if(Number.parseFloat(valor) && this.#saldo >= valor) {
             this.#saldo -= valor;
         }
     }
 
     depositar(valor){
-        if(this.#saldo >= 0) {
+        if(Number.parseFloat(valor) && this.#saldo >= 0) {
             this.#saldo += valor;
         }
     }
