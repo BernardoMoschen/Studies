@@ -36,15 +36,20 @@ export class Conta {
     }
 
    
-    sacar(valor){
+    sacar(valor, taxa){
         if(Number.parseFloat(valor) && this.#saldo >= valor) {
-            this.#saldo -= valor;
+            if(taxa){
+                const valorSacado = taxa * valor;
+                this.#saldo -= valorSacado.toFixed(2);
+            } else {
+                this.#saldo -= valor;
+            }
         }
     }
 
     depositar(valor){
         if(Number.parseFloat(valor) && this.#saldo >= 0) {
-            this.saldo += valor;
+            this.#saldo += valor;
         }
     }
 
