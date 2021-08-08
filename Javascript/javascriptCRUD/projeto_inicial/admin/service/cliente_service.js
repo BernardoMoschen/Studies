@@ -15,7 +15,7 @@ const criaNovaLinha = (nome, email) => {
 
 const tabela = document.querySelector('[data-tabela]');
 
-const listaClientes = () => fetch('http://localhost:3000/profile').then((resposta) => resposta.json);
+const listaClientes = () => fetch('http://localhost:3000/profile').then((resposta) => resposta.json());
 
 listaClientes().then((data) => {
   data.forEach((element) => {
