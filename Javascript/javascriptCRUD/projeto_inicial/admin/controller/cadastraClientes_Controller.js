@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import { criaCliente } from '../service/cliente_service.js';
 
 const formulario = document.querySelector('[data-form]');
