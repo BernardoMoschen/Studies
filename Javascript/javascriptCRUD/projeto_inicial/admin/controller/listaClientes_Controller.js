@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import listaClientes from '../service/cliente_service.js';
+import { listaClientes } from '../service/cliente_service.js';
 
 const criaNovaLinha = (nome, email) => {
   const linhaNovoCliente = document.createElement('tr');
