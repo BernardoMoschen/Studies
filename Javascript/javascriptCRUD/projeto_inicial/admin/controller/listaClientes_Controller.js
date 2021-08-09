@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/extensions
-import { listaClientes } from '../service/cliente_service.js';
+import { listaClientes, removeCLiente } from '../service/cliente_service.js';
 
-const criaNovaLinha = (nome, email) => {
+const criaNovaLinha = (nome, email, id) => {
   const linhaNovoCliente = document.createElement('tr');
   const conteudo = `<td class="td" data-td>${nome}</td>
                   <td>${email}</td>
@@ -13,13 +13,25 @@ const criaNovaLinha = (nome, email) => {
                   </td>`;
 
   linhaNovoCliente.innerHTML = conteudo;
+  linhaNovoCliente.dataset.id = id;
   return linhaNovoCliente;
 };
 
 const tabela = document.querySelector('[data-tabela]');
 
+tabela.addEventListener('click', (evento) => {
+  const botaoExcluir = evento.target.className === 'botao-simples botao-simples--excluir';
+  if (botaoExcluir) {
+    const linhaCliente = evento.target.closest('[data-id]');
+    const { id } = linhaCliente.dataset;
+    removeCLiente(id).then(() => {
+      linhaCliente.remove();
+    });
+  }
+});
+
 listaClientes().then((data) => {
   data.forEach((element) => {
-    tabela.appendChild(criaNovaLinha(element.nome, element.email));
+    tabela.appendChild(criaNovaLinha(element.nome, element.email, element.id));
   });
 });
