@@ -22,18 +22,28 @@ const tabela = document.querySelector('[data-tabela]');
 tabela.addEventListener('click', async (evento) => {
   const botaoExcluir = evento.target.className === 'botao-simples botao-simples--excluir';
   if (botaoExcluir) {
-    const linhaCliente = evento.target.closest('[data-id]');
-    const { id } = linhaCliente.dataset;
-    await removeCLiente(id);
-    linhaCliente.remove();
+    try {
+      const linhaCliente = evento.target.closest('[data-id]');
+      const { id } = linhaCliente.dataset;
+      await removeCLiente(id);
+      linhaCliente.remove();
+    } catch (erro) {
+      console.log(erro);
+      window.location.href = '../telas/erro.html';
+    }
   }
 });
 
 const render = async () => {
-  const listarClientes = await listaClientes();
-  listarClientes.forEach((element) => {
-    tabela.appendChild(criaNovaLinha(element.nome, element.email, element.id));
-  });
+  try {
+    const listarClientes = await listaClientes();
+    listarClientes.forEach((element) => {
+      tabela.appendChild(criaNovaLinha(element.nome, element.email, element.id));
+    });
+  } catch (erro) {
+    console.log(erro);
+    window.location.href = '../telas/erro.html';
+  }
 };
 
 render();
