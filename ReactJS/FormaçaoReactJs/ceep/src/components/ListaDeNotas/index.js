@@ -1,2 +1,3 @@
-import FormularioCadastro from "../FormularioCadastro";
-export default FormularioCadastro;
+import ListaDeNotas from "./ListaDeNotas";
+
+export default ListaDeNotas;

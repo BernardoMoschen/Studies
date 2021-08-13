@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Style.css";
+import "./estilo.css";
 class FormularioCadastro extends Component {
 
   constructor(props){

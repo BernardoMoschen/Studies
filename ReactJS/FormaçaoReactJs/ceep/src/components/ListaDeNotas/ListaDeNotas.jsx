@@ -1,6 +1,7 @@
+
 import React, { Component } from "react";
 import CardNota from "../CardNota";
-import "./Style.css";
+import "./estilo.css";
 class ListaDeNotas extends Component {
  
   render() {
@@ -18,4 +19,4 @@ class ListaDeNotas extends Component {
   }
 }
 
-export default ListaDeNotas;
+export default ListaDeNotas
