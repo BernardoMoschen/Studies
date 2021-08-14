@@ -1,0 +1,21 @@
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": false,
+    "source.fixAll.eslint": true
+  },
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".mdx"
+    ]
+  },
+  "eslint.validate": [  
+    "javascript",    
+    "javascriptreact",    
+    "markdown",    
+    "mdx"
+  ],
+  "editor.tabSize": 2,
+  "files.eol": "\n"
+}
