@@ -7,6 +7,7 @@ class ListaDeCategorias extends Component {
     this.state = {categorias:[]}
     this._novasCategorias = this._novasCategorias.bind(this);
   }
+  
   componentDidMount(){
     this.props.categorias.inscrever(this._novasCategorias);
   }
