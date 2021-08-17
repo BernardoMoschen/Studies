@@ -4,20 +4,30 @@ import Button from '@material-ui/core/Button';
 function FormularioCadastro() {
   return (
     <form>
-      <label>Nome</label>
-      <input type="text" />
+      <label htmlFor="nome">
+        Nome
+        <input id="nome" type="text" />
+      </label>
 
-      <label>Sobrenome</label>
-      <input type="text" />
+      <label htmlFor="sobrenome">
+        Sobrenome
+        <input id="sobrenome" type="text" />
+      </label>
 
-      <label>CPF</label>
-      <input type="text" />
+      <label htmlFor="cpf">
+        CPF
+        <input id="cpf" type="text" />
+      </label>
 
-      <label>Promoções</label>
-      <input type="checkbox" />
+      <label htmlFor="promocoes">
+        Promoções
+        <input id="promocoes" type="checkbox" />
+      </label>
 
-      <label>Novidades</label>
-      <input type="checkbox" />
+      <label htmlFor="novidades">
+        Novidades
+        <input id="novidades" type="checkbox" />
+      </label>
 
       <Button
         type="submit"
