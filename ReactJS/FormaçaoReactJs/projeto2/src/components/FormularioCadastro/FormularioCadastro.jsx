@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TextField, Button, Switch, FormControlLabel,
 } from '@material-ui/core';
 
 function FormularioCadastro() {
+  const [nome, setNome] = useState('');
   return (
-    <form>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+    }}
+    >
       <TextField
+        onChange={(event) => {
+          setNome(event.target.value);
+          console.log(nome);
+        }}
         id="nome"
         label="Nome"
         variant="outlined"
