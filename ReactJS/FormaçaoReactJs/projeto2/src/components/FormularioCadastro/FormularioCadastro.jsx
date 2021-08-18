@@ -6,22 +6,20 @@ import {
 function FormularioCadastro() {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [promocoes, setPromocoes] = useState(true);
+  const [novidades, setNovidades] = useState(true);
 
   return (
     <form onSubmit={(event) => {
       event.preventDefault();
-      console.log(nome, sobrenome);
+      console.log(nome, sobrenome, cpf, promocoes, novidades);
     }}
     >
       <TextField
         value={nome}
         onChange={(event) => {
-          let tempNome = event.target.value;
-          if (tempNome.length >= 3) {
-            tempNome = tempNome.substr(0, 3);
-            console.log(tempNome);
-          }
-          setNome(tempNome);
+          setNome(event.target.value);
         }}
         id="nome"
         label="Nome"
@@ -42,6 +40,9 @@ function FormularioCadastro() {
       />
 
       <TextField
+        onChange={(event) => {
+          setCpf(event.target.value);
+        }}
         id="cpf"
         label="CPF"
         variant="outlined"
@@ -52,9 +53,12 @@ function FormularioCadastro() {
       <FormControlLabel
         control={(
           <Switch
+            onChange={(event) => {
+              setPromocoes(event.target.checked);
+            }}
             name="promocoes"
             color="primary"
-            defaultChecked
+            checked={promocoes}
           />
         )}
         label="promoções"
@@ -63,9 +67,12 @@ function FormularioCadastro() {
       <FormControlLabel
         control={(
           <Switch
+            onChange={(event) => {
+              setNovidades(event.target.checked);
+            }}
             name="novidades"
             color="primary"
-            defaultChecked
+            checked={novidades}
           />
         )}
         label="novidades"
