@@ -5,7 +5,7 @@ import {
 
 } from '@material-ui/core';
 
-function FormularioCadastro({ aoEnviar }) {
+function FormularioCadastro({ aoEnviar, validarCPF }) {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
@@ -49,7 +49,8 @@ function FormularioCadastro({ aoEnviar }) {
           setCpf(event.target.value);
         }}
         onBlur={() => {
-          setErros({ cpf: { valido: false, texto: 'CPF deve possuir 11 dígitos' } });
+          const isValid = validarCPF(cpf);
+          setErros({ cpf: isValid });
         }}
         error={!erros.cpf.valido}
         helperText={erros.cpf.texto}
@@ -101,6 +102,7 @@ function FormularioCadastro({ aoEnviar }) {
 
 FormularioCadastro.propTypes = {
   aoEnviar: PropTypes.func.isRequired,
+  validarCPF: PropTypes.func.isRequired,
 };
 
 export default FormularioCadastro;
