@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
 import {
   TextField, Button, Switch, FormControlLabel,
+
 } from '@material-ui/core';
 
-function FormularioCadastro() {
+function FormularioCadastro({ aoEnviar }) {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(true);
+  const [erros, setErros] = useState({ cpf: { valido: true, texto: '' } });
 
   return (
     <form onSubmit={(event) => {
       event.preventDefault();
-      console.log(nome, sobrenome, cpf, promocoes, novidades);
+      aoEnviar({
+        nome, sobrenome, cpf, promocoes, novidades,
+      });
     }}
     >
       <TextField
@@ -43,6 +48,11 @@ function FormularioCadastro() {
         onChange={(event) => {
           setCpf(event.target.value);
         }}
+        onBlur={() => {
+          setErros({ cpf: { valido: false, texto: 'CPF deve possuir 11 dígitos' } });
+        }}
+        error={!erros.cpf.valido}
+        helperText={erros.cpf.texto}
         id="cpf"
         label="CPF"
         variant="outlined"
@@ -88,5 +98,9 @@ function FormularioCadastro() {
     </form>
   );
 }
+
+FormularioCadastro.propTypes = {
+  aoEnviar: PropTypes.func.isRequired,
+};
 
 export default FormularioCadastro;
