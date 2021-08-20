@@ -5,15 +5,19 @@ import DadosPessoais from './DadosPessoais';
 import DadosUsuario from './DadosUsuario';
 import DadosEntrega from './DadosEntrega';
 
-function FormularioCadastro({ aoEnviar, validarCPF }) {
+function FormularioCadastro({ validarCPF }) {
   const [etapaAtual, setEtapaAtual] = useState(0);
+
+  function proximaEtapa() {
+    setEtapaAtual(etapaAtual + 1);
+  }
 
   function formularioAtual(etapa) {
     switch (etapa) {
       case 0:
-        return <DadosUsuario aoEnviar={aoEnviar} validarCPF={validarCPF} />;
+        return <DadosUsuario aoEnviar={proximaEtapa} />;
       case 1:
-        return <DadosPessoais />;
+        return <DadosPessoais aoEnviar={proximaEtapa} validarCPF={validarCPF} />;
       case 2:
         return <DadosEntrega />;
       default:
@@ -29,7 +33,6 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
 }
 
 FormularioCadastro.propTypes = {
-  aoEnviar: PropTypes.func.isRequired,
   validarCPF: PropTypes.func.isRequired,
 };
 

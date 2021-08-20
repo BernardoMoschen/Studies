@@ -1,9 +1,15 @@
-import { Button, TextField } from '@material-ui/core';
 import React from 'react';
 
-function DadosUsuario() {
+import { Button, TextField } from '@material-ui/core';
+import { PropTypes } from 'prop-types';
+
+function DadosUsuario({ aoEnviar }) {
   return (
-    <form>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      aoEnviar();
+    }}
+    >
       <TextField
         id="email"
         label="email"
@@ -31,5 +37,9 @@ function DadosUsuario() {
     </form>
   );
 }
+
+DadosUsuario.propTypes = {
+  aoEnviar: PropTypes.func.isRequired,
+};
 
 export default DadosUsuario;
