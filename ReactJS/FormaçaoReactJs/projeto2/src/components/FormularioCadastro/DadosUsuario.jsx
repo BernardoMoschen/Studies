@@ -9,8 +9,8 @@ function DadosUsuario() {
         label="email"
         variant="outlined"
         margin="normal"
-        fullWidth
         type="email"
+        fullWidth
       />
       <TextField
         id="senha"
