@@ -4,13 +4,21 @@ import {
   TextField, Button, Switch, FormControlLabel,
 } from '@material-ui/core';
 
-function DadosPessoais({ aoEnviar, validarCPF }) {
+function DadosPessoais({ aoEnviar, validacoes }) {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(true);
   const [erros, setErros] = useState({ cpf: { valido: true, texto: '' } });
+
+  function validarCampos(event) {
+    const { name, value } = event.target;
+    const novoEstado = { ...erros };
+    novoEstado[name] = validacoes[name](value);
+    setErros(novoEstado);
+    console.log(novoEstado);
+  }
 
   return (
     <form onSubmit={(event) => {
@@ -27,6 +35,7 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
         }}
         id="nome"
         label="Nome"
+        name="nome"
         required
         type="text"
         variant="outlined"
@@ -40,6 +49,7 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
         }}
         id="sobrenome"
         label="Sobrenome"
+        name="sobrenome"
         required
         type="text"
         variant="outlined"
@@ -51,13 +61,13 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
         onChange={(event) => {
           setCpf(event.target.value);
         }}
-        onBlur={() => {
-          const isValid = validarCPF(cpf);
-          setErros({ cpf: isValid });
+        onBlur={(event) => {
+          validarCampos(event);
         }}
         error={!erros.cpf.valido}
         helperText={erros.cpf.texto}
         id="cpf"
+        name="cpf"
         label="CPF"
         required
         variant="outlined"
@@ -106,7 +116,7 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
 
 DadosPessoais.propTypes = {
   aoEnviar: PropTypes.func.isRequired,
-  validarCPF: PropTypes.func.isRequired,
+  validacoes: PropTypes.func.isRequired,
 };
 
 export default DadosPessoais;

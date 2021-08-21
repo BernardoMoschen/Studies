@@ -4,24 +4,26 @@ import './App.css';
 import { Container, Typography } from '@material-ui/core';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
 import 'fontsource-roboto';
+import { validaCPF, validaSenha } from './models/cadastro';
 
 function envioForm(dadosCadastro) {
   console.log(dadosCadastro);
 }
 
-function validaCPF(cpf) {
-  const cpfVálido = /^\d{3}.?\d{3}.?\d{3}-?\d{2}$/;
-  if (!cpfVálido.test(cpf)) {
-    return { valido: false, texto: 'CPF deve estar no formato: XXX.XXX.XXX-XX' };
-  }
-  return { valido: true, texto: '' };
-}
-
 function App() {
   return (
     <Container component="article" maxWidth="sm">
-      <Typography variant="h3" component="h1" align="center">Formulário Cadastro</Typography>
-      <FormularioCadastro aoEnviar={envioForm} validarCPF={validaCPF} />
+      <Typography
+        variant="h3"
+        component="h1"
+        align="center"
+      >
+        Formulário Cadastro
+      </Typography>
+      <FormularioCadastro
+        aoEnviar={envioForm}
+        validacoes={{ cpf: validaCPF, senha: validaSenha }}
+      />
     </Container>
   );
 }
