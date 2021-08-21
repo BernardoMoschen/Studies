@@ -3,8 +3,8 @@ import { PropTypes } from 'prop-types';
 import { Button, TextField } from '@material-ui/core';
 
 function DadosUsuario({ aoEnviar }) {
-  const { email, setEmail } = useState('');
-  const { senha, setSenha } = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   return (
     <form onSubmit={(event) => {
