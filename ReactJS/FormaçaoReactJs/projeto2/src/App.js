@@ -5,8 +5,8 @@ import { Container, Typography } from '@material-ui/core';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
 import 'fontsource-roboto';
 
-function envioForm() {
-  console.log('eita');
+function envioForm(dadosCadastro) {
+  console.log(dadosCadastro);
 }
 
 function validaCPF(cpf) {
