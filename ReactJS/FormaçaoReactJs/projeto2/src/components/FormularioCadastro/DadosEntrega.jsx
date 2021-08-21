@@ -1,10 +1,27 @@
 import { TextField, Button } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
 
-function DadosEntrega() {
+function DadosEntrega({ aoEnviar }) {
+  const [cep, setCEP] = useState('');
+  const [endereço, setEndereco] = useState('');
+  const [numero, setNumero] = useState('');
+  const [estado, setEstado] = useState('');
+  const [cidade, setCidade] = useState('');
+
   return (
-    <form>
+    <form onSubmit={(event) => {
+      event.preventDefault();
+      aoEnviar({
+        cep, endereço, numero, estado, cidade,
+      });
+    }}
+    >
       <TextField
+        value={cep}
+        onChange={(event) => {
+          setCEP(event.target.value);
+        }}
         id="CEP"
         label="CEP"
         type="number"
@@ -12,6 +29,10 @@ function DadosEntrega() {
         margin="normal"
       />
       <TextField
+        value={endereço}
+        onChange={(event) => {
+          setEndereco(event.target.value);
+        }}
         id="endereço"
         label="Endereço"
         type="text"
@@ -20,6 +41,10 @@ function DadosEntrega() {
         fullWidth
       />
       <TextField
+        value={numero}
+        onChange={(event) => {
+          setNumero(event.target.value);
+        }}
         id="numero"
         label="Número"
         type="number"
@@ -27,6 +52,10 @@ function DadosEntrega() {
         margin="normal"
       />
       <TextField
+        value={estado}
+        onChange={(event) => {
+          setEstado(event.target.value);
+        }}
         id="estado"
         label="Estado"
         type="text"
@@ -34,6 +63,10 @@ function DadosEntrega() {
         margin="normal"
       />
       <TextField
+        value={cidade}
+        onChange={(event) => {
+          setCidade(event.target.value);
+        }}
         id="cidade"
         label="Cidade"
         type="text"
@@ -51,5 +84,9 @@ function DadosEntrega() {
     </form>
   );
 }
+
+DadosEntrega.propTypes = {
+  aoEnviar: PropTypes.func.isRequired,
+};
 
 export default DadosEntrega;
