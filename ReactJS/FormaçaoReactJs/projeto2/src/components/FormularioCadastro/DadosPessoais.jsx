@@ -27,6 +27,7 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
         }}
         id="nome"
         label="Nome"
+        required
         type="text"
         variant="outlined"
         margin="normal"
@@ -39,6 +40,7 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
         }}
         id="sobrenome"
         label="Sobrenome"
+        required
         type="text"
         variant="outlined"
         margin="normal"
@@ -57,6 +59,7 @@ function DadosPessoais({ aoEnviar, validarCPF }) {
         helperText={erros.cpf.texto}
         id="cpf"
         label="CPF"
+        required
         variant="outlined"
         margin="normal"
         fullWidth

@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { Button, TextField } from '@material-ui/core';
 import { PropTypes } from 'prop-types';
+import { Button, TextField } from '@material-ui/core';
 
 function DadosUsuario({ aoEnviar }) {
   return (
@@ -13,17 +12,19 @@ function DadosUsuario({ aoEnviar }) {
       <TextField
         id="email"
         label="email"
+        type="email"
+        required
         variant="outlined"
         margin="normal"
-        type="email"
         fullWidth
       />
       <TextField
         id="senha"
         label="senha"
+        type="password"
+        required
         variant="outlined"
         margin="normal"
-        type="password"
         fullWidth
       />
       <Button
