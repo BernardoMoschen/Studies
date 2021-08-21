@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
+import {
+  Step, StepLabel, Stepper, Typography,
+} from '@material-ui/core';
 import DadosPessoais from './DadosPessoais';
 import DadosUsuario from './DadosUsuario';
 import DadosEntrega from './DadosEntrega';
@@ -19,16 +22,39 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
     <DadosUsuario aoEnviar={coletaDados} />,
     <DadosPessoais aoEnviar={coletaDados} validarCPF={validarCPF} />,
     <DadosEntrega aoEnviar={coletaDados} />,
+    <Typography variant="h5">Obrigado pelo Cadastro!</Typography>,
   ];
 
   useEffect(() => {
-    if (etapaAtual === formularios.length) {
+    if (etapaAtual === formularios.length - 1) {
       aoEnviar(dadosColetados);
     }
   });
 
   return (
     <>
+      <Stepper activeStep={etapaAtual}>
+        <Step>
+          <StepLabel>
+            Login
+          </StepLabel>
+        </Step>
+        <Step>
+          <StepLabel>
+            Pessoal
+          </StepLabel>
+        </Step>
+        <Step>
+          <StepLabel>
+            Entrega
+          </StepLabel>
+        </Step>
+        <Step>
+          <StepLabel>
+            Finalização
+          </StepLabel>
+        </Step>
+      </Stepper>
       {formularios[etapaAtual]}
     </>
   );
