@@ -7,9 +7,10 @@ function validaCPF(cpf) {
 }
 
 function validaSenha(senha) {
-  const senhaValida = /(\d){7}(!| @ | ?){2}/;
+  const senhaValida = /\d{7,}/;
   if (!senhaValida.test(senha)) {
-    return { valido: false, texto: 'A senha deve ter no mínimo 7 dígitos, aém de 2 caracteres entre especiais (!, ?, @)' };
+    console.log(senha);
+    return { valido: false, texto: 'A senha deve ter no mínimo 7 dígitos.' };
   }
   return { valido: true, texto: '' };
 }
