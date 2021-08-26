@@ -7,7 +7,7 @@ import DadosPessoais from './DadosPessoais';
 import DadosUsuario from './DadosUsuario';
 import DadosEntrega from './DadosEntrega';
 
-function FormularioCadastro({ aoEnviar, validacoes }) {
+function FormularioCadastro({ aoEnviar }) {
   const [etapaAtual, setEtapaAtual] = useState(0);
   const [dadosColetados, setDados] = useState({});
 
@@ -19,9 +19,9 @@ function FormularioCadastro({ aoEnviar, validacoes }) {
     proximaEtapa();
   }
   const formularios = [
-    <DadosUsuario aoEnviar={coletaDados} validacoes={validacoes} />,
-    <DadosPessoais aoEnviar={coletaDados} validacoes={validacoes} />,
-    <DadosEntrega aoEnviar={coletaDados} validacoes={validacoes} />,
+    <DadosUsuario aoEnviar={coletaDados} />,
+    <DadosPessoais aoEnviar={coletaDados} />,
+    <DadosEntrega aoEnviar={coletaDados} />,
     <Typography variant="h5">Obrigado pelo Cadastro!</Typography>,
   ];
 
@@ -62,7 +62,6 @@ function FormularioCadastro({ aoEnviar, validacoes }) {
 
 FormularioCadastro.propTypes = {
   aoEnviar: PropTypes.func.isRequired,
-  validacoes: PropTypes.func.isRequired,
 };
 
 export default FormularioCadastro;
