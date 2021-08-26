@@ -2,20 +2,13 @@ import React, { useState, useContext } from 'react';
 import { PropTypes } from 'prop-types';
 import { Button, TextField } from '@material-ui/core';
 import ValidacoesCadastro from '../../contexts/ValidacoesCadastro';
+import useErros from '../../hooks/useErros';
 
 function DadosUsuario({ aoEnviar }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [erros, setErros] = useState({ senha: { valido: true, texto: '' } });
-
   const validacoes = useContext(ValidacoesCadastro);
-
-  function validarCampos(event) {
-    const { name, value } = event.target;
-    const novoEstado = { ...erros };
-    novoEstado[name] = validacoes[name](value);
-    setErros(novoEstado);
-  }
+  const [erros, validarCampos] = useErros(validacoes);
 
   function envioValido() {
     // eslint-disable-next-line no-restricted-syntax
