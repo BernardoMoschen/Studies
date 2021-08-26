@@ -21,7 +21,16 @@ function useErros(validacoes) {
     setErros(novoEstado);
   }
 
-  return [erros, validarCampos];
+  function envioValido() {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const campo in erros) {
+      if (!erros[campo].valido) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return [erros, validarCampos, envioValido];
 }
 
 export default useErros;

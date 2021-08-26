@@ -8,17 +8,7 @@ function DadosUsuario({ aoEnviar }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const validacoes = useContext(ValidacoesCadastro);
-  const [erros, validarCampos] = useErros(validacoes);
-
-  function envioValido() {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const campo in erros) {
-      if (!erros[campo].valido) {
-        return false;
-      }
-    }
-    return true;
-  }
+  const [erros, validarCampos, envioValido] = useErros(validacoes);
 
   return (
     <form onSubmit={(event) => {

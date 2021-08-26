@@ -13,17 +13,7 @@ function DadosPessoais({ aoEnviar }) {
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(true);
   const validacoes = useContext(ValidacoesCadastro);
-  const [erros, validarCampos] = useErros(validacoes);
-
-  function envioValido() {
-    // eslint-disable-next-line no-restricted-syntax
-    for (const campo in erros) {
-      if (!erros[campo].valido) {
-        return false;
-      }
-    }
-    return true;
-  }
+  const [erros, validarCampos, envioValido] = useErros(validacoes);
 
   return (
     <form onSubmit={(event) => {
