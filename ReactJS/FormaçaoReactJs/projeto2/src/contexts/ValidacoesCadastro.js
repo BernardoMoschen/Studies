@@ -1,5 +1,11 @@
 import React from 'react';
 
-const ValidacoesCadastro = React.createContext();
+function defaultProvider(dados) {
+  console.log(dados);
+  return { valido: true, texto: '' };
+}
+const ValidacoesCadastro = React.createContext(
+  { cpf: defaultProvider, senha: defaultProvider, nome: defaultProvider },
+);
 
 export default ValidacoesCadastro;
