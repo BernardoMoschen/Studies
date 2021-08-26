@@ -14,4 +14,12 @@ function validaSenha(senha) {
   return { valido: true, texto: '' };
 }
 
-export { validaCPF, validaSenha };
+function validaNome(nome) {
+  const nomeValido = /\w{3,}/;
+  if (!nomeValido.test(nome)) {
+    return { valido: false, texto: 'O nome deve ter no mínimo 3 dígitos.' };
+  }
+  return { valido: true, texto: '' };
+}
+
+export { validaCPF, validaSenha, validaNome };

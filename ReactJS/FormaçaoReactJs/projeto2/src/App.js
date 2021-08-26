@@ -4,7 +4,7 @@ import './App.css';
 import { Container, Typography } from '@material-ui/core';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
 import 'fontsource-roboto';
-import { validaCPF, validaSenha } from './models/cadastro';
+import { validaCPF, validaNome, validaSenha } from './models/cadastro';
 
 function envioForm(dadosCadastro) {
   console.log(dadosCadastro);
@@ -22,7 +22,7 @@ function App() {
       </Typography>
       <FormularioCadastro
         aoEnviar={envioForm}
-        validacoes={{ cpf: validaCPF, senha: validaSenha }}
+        validacoes={{ cpf: validaCPF, senha: validaSenha, nome: validaNome }}
       />
     </Container>
   );

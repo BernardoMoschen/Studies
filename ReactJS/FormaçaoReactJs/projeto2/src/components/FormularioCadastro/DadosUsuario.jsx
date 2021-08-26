@@ -68,7 +68,7 @@ function DadosUsuario({ aoEnviar, validacoes }) {
         color="primary"
         type="submit"
       >
-        Cadastrar
+        Próximo
 
       </Button>
     </form>
