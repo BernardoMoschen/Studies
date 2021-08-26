@@ -17,15 +17,26 @@ function DadosPessoais({ aoEnviar, validacoes }) {
     const novoEstado = { ...erros };
     novoEstado[name] = validacoes[name](value);
     setErros(novoEstado);
-    console.log(novoEstado);
+  }
+
+  function envioValido() {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const campo in erros) {
+      if (!erros[campo].valido) {
+        return false;
+      }
+    }
+    return true;
   }
 
   return (
     <form onSubmit={(event) => {
       event.preventDefault();
-      aoEnviar({
-        nome, sobrenome, cpf, promocoes, novidades,
-      });
+      if (envioValido()) {
+        aoEnviar({
+          nome, sobrenome, cpf, promocoes, novidades,
+        });
+      }
     }}
     >
       <TextField
@@ -61,9 +72,7 @@ function DadosPessoais({ aoEnviar, validacoes }) {
         onChange={(event) => {
           setCpf(event.target.value);
         }}
-        onBlur={(event) => {
-          validarCampos(event);
-        }}
+        onBlur={validarCampos}
         error={!erros.cpf.valido}
         helperText={erros.cpf.texto}
         id="cpf"
@@ -108,7 +117,7 @@ function DadosPessoais({ aoEnviar, validacoes }) {
         variant="contained"
         color="primary"
       >
-        Cadastrar
+        Próximo
       </Button>
     </form>
   );
