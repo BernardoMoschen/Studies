@@ -7,7 +7,8 @@ export default function Pagina404() {
         <main className="cointainer flex flex--centro flex--coluna">
           <img className="doguito-imagem" src={imagem} alt=""/> 
           <p className="naoencontrado-texto">
-              Ops, essa página não existe!</p> 
+              Ops, essa página não existe!
+              </p> 
         </main>
     )
 }

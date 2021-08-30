@@ -13,7 +13,7 @@ function App() {
       <Home/>
     </Route>
     <Route>
-      <Sobre exact path='/sobre'/>
+      <Sobre path='/sobre'/>
     </Route>
     <Route>
       <Pagina404/>
