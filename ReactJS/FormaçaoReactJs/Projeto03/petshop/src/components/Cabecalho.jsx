@@ -1,5 +1,6 @@
 import React from 'react'
 import imagem from '../assets/img/doguito.svg'
+import '../assets/css/componentes/cabecalho.css'
 export default function Cabecalho() {
     return (
         <header className="cabecalho container">
