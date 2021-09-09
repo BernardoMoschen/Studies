@@ -6,7 +6,6 @@ import { Route, useParams, useRouteMatch, Link, Switch } from 'react-router-dom'
 import { busca } from '../api/api'
 import SubCategoria from '../paginas/SubCategoria'
 
-
 const Categoria = () => {
   const { id } = useParams()
   const { url, path } = useRouteMatch()
