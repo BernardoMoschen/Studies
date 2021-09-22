@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react'
 
 describe('Main component', () => {
     describe('When i open the app,', () => {
-        it('the bank name is displayed',`` () => {
+        it('the bank name is displayed', () => {
             render(<App/>);
             expect(screen.getByText('ByteBank')).toBeInTheDocument()
         })
