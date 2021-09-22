@@ -4,11 +4,15 @@ import styled from 'styled-components'
 const Item = styled.div`
 display: flex;
 flex-direction: column;
+
+.text {
+  font-Weight: bold;
+}
 `
 
 export default ({type, from, value}) => (
   <Item>
-  <span>
+  <span className="text">
   {type}
   </span>
   <span>
