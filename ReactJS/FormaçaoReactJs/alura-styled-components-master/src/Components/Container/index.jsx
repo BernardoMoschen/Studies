@@ -17,13 +17,11 @@ justify-content: space-between;
 
 export default () => {
   return (
-    <Container>
+  <Container>
     <Titulo>Olá Fulano!</Titulo>
-    <section className="conteudo">
+    <Conteudo>
     <Conta />
-    </section>
+    </Conteudo>
     </Container>
     );
   };
-  
-  export default Container;
