@@ -1,0 +1,21 @@
+import React from 'react'
+import styled from 'styled-components'
+
+const Item = styled.div`
+display: flex;
+flex-direction: column;
+`
+
+export default ({type, from, value}) => (
+  <Item>
+  <span>
+  {type}
+  </span>
+  <span>
+  {from}
+  </span>
+  <span>
+  {value}
+  </span>
+  </Item>
+  )
