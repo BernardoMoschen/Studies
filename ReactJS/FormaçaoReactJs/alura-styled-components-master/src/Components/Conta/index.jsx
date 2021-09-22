@@ -3,7 +3,7 @@ import styled from "styled-components";
 import privado from "../../assets/images/privado.svg";
 import olho_icone from "../../assets/images/olho.svg";
 import dinheiro from "../../assets/images/dinheiro.svg";
-import { Icone, Box } from '../../Components/UI'
+import { Icone, Box, Detalhe, GenericButton } from '../../Components/UI'
 
 const IconeMargin = styled(Icone)`
 margin-top: 2px
@@ -26,17 +26,17 @@ const Conta = () => {
         </span>
         {toggleState ? (
           <div className="saldo">
-            <span className="detalhe">R$</span> 0,00{" "}
+            <Detalhe>R$</Detalhe> 0,00{" "}
           </div>
         ) : null}
       </div>
 
-      <button className="btn" onClick={toggleHandler}>
+      <GenericButton onClick={toggleHandler}>
         <IconeMargin
           src={toggleState ? privado : olho_icone}
           alt="Privacidade do Saldo"
         />
-      </button>
+      </GenericButton>
     </Box>
   );
 };

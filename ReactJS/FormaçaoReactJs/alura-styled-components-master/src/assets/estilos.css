@@ -3,11 +3,6 @@
   font-size: 32px;
 }
 
-.detalhe {
-  color: #41d3be;
-  font-size: 24px;
-}
-
 @media (max-width: 800px) {
   .box {
     width: 95%;
