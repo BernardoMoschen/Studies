@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressões Regulares</title>
+<script>
+
+// Declaração:
+    // Pode-se definir uma RegExp de uma forma verbal: declara-se a RegExp na instanciação de um objeto.
+    //Há necessidade de escape de '\'.
+        // var suaVariável = new RegExp('suaRegExp', modificadoresDaRegExp').
+    
+    //Ou de uma forma menos literal: declara-se a RegExp entre '/ /'. 
+    //Não há necessidade de escape de '\'.
+    //   /suaRegExp/modificadoresDaRegExp.
+
+// Alguns Modificadores:
+    // g - aplica a RegExp globalmente, ou seja, quantas vezes aparecer.
+    // i - desabilita case insensitivity.
+    // c - abilita case sensitivity.
+
+// Alguns métodos:
+    // .test - testa a RegExp no alvo e retorna true ou false.
+    // .exec - testa a RegExp e retorna as correspondências encontradas.
+    // .replace -  recebe uma RegExp como 1º parâmetro e o 2º como o novo texto que
+                // deve substituir todos os lugares que condizerem com a expressão passada.
+
+// Classses:
+    // \t - é um tab.
+    // \r - é carriage return.  
+    // \n - é newline.
+    // \f - é form feed.
+    // \w - é um word char ([A-Za-z0-9_]).
+    // \W - é um non-word char, ou seja, tudo que não é um word char.
+    // \d - são todos os digítos ([0-9])
+    // \D - é um non-digit, ou seja, tudo que não é dígito.
+    // \s - é um whitespace ([ \t\r\n\f]).
+
+// Negação:
+    // ^ - o símbolo '^' realiza a negação sobre o que vem em seguida, ou seja, nega/exclui o sucessor.
+        /* Exs: [^>]+ = impede o selecionamento de '>'.
+                
+
+// Seletores:
+    // [A-Z] - significa de A até Z, sempre maiúscula.
+    // [a-z] significa de a até z, sempre minúscula.
+    // [A-Za-z] - significa A-Z ou a-z.
+    // [abc] - significa a, b ou c, ou seja, um grupo seleto de carecteres.
+    // [n-m] - grupo seleto de carecteres de n até m.
+    // [^,]+ - Qualquer digíto que não seja uma vírgula, sendo letra ou número. 
+
+// Quantificadores:
+    // ? - zero ou mais vezes.
+    // + - uma ou mais vezes.
+    // * - zero ou mais vezes.
+        /* OBS: todos os quantificadores são gananciosos por padrão, ou seja, irão SEMPRE selecionar o Nº MÁXIMO de caracteres.
+    para deixarmos o quantificador preguiçoso devemos adicionar uma '?' após o quantificador.
+
+    // {n} - exatamente n vezes.
+    // {n,} - no minímo n vezes.
+    // {n,m} - no minímo n vezes, no máximo m vezes.
+
+// Âncoras: Uma âncora não casa caracteres como as classes fazem, e nem definem quantidades. Âncoras marcam uma posição específica no alvo, por isso não é possível combiná-las com um quantifier.
+    // b - é uma âncora que seleciona um word boundary, isso é o início ou fim da palavra.
+    // B - NOT word boundary, a seleção deve aparecer dentro de uma palavra, nunca no ínicio ou no fim.
+    // ^ - seleciona o início da string alvo., garante que nada deve vir antes da âncora.
+    // $ - seleciona o fim do alvo, garante que nada deve vir depois da âncora.
+
+// Grupos:
+    // (0123) - tudo que está entre parentêses é um grupo.
+    // (?:123) - Non-capturing-group = ao usar '?:' no ínicio de um grupo, tornamos ele opcional (pode ou não aparecer).
+    // (alfa|beta) - grupo seletivo, um OU outro (alfa OU beta).
+    // \nº - backreferences = podemos referenciar um certo grupo utilizando \ seguido do número do grupo.
+        //OBS: o grupo 0 é a própria frase, logo, a partir do 1 são os grupos selecionados pela RegExp.
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>]

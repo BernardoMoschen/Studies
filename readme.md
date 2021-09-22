@@ -1,0 +1,1 @@
+# This directory only contains things that i've studied
