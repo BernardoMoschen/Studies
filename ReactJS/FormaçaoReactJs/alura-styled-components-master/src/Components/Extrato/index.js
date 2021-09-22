@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '../UI'
+import { Box, GenericButton } from '../UI'
 import { extratoLista } from '../../info'
 
 const Extrato = () => {
@@ -13,6 +13,7 @@ const Extrato = () => {
           </div>
         )
       })}
+      <GenericButton>Ver Mais</GenericButton>
     </Box>
   )
 }
