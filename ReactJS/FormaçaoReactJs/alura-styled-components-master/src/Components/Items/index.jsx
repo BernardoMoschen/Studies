@@ -16,4 +16,5 @@ font-size: 10px
 export default (props) => 
   <Items>
     <Item {...props}/>
+    <span>{props.date}</span>
   </Items>
