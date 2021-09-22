@@ -8,18 +8,18 @@ describe('Componente principal', () => {
             render(<App/>);
             expect(screen.getByText('ByteBank')).toBeInTheDocument()
         })
-    
+        
         it('Meu saldo e exibido', () => {
             render(<App/>);
             expect(screen.getByText('Saldo:')).toBeInTheDocument()
         })
-    
+        
         it('O botao de realizar transacao e exibido', () => {
             render(<App/>);
             expect(screen.getByText('Realizar operação')).toBeInTheDocument()
         }) 
     })
-
+    
     describe('Quando eu realizado uma transacao,', () => {
         it('de saque, o valor diminui', () => {
             const valores = {
@@ -31,19 +31,18 @@ describe('Componente principal', () => {
         })
         
         it('de saque, a transacao deve ser realizada', () => {
-            const {getByText, getByTestId, getByLabelText} = render(<App/>)
-
-            const saldo = getByText('R$ 1000')
-            const transacao = getByLabelText('Saque')
-            const valor = getByTestId('valor')
-            const botaoTransacao = getByText('Realizar operação')
-
-            expect(saldo.textContent).toBe('R$ 1000')
-
-            fireEvent.click(transacao, {target: {value:'saque'}})
-            fireEvent.change(valor, {target: {value: 10 }})
-            fireEvent.click(botaoTransacao)
-            expect().toBe()
-        });
+            render(<App/>)
+                
+                const saldo = screen.getByText('R$ 1000')
+                const transacao = screen.getByLabelText('Saque')
+                const valor = screen.getByTestId('valor')
+                const botaoTransacao = screen.getByText('Realizar operação')
+                
+                expect(saldo.textContent).toBe('R$ 1000')
+                
+                fireEvent.click(transacao, {target: {value:'saque'}})
+                fireEvent.change(valor, {target: {value: 10 }})
+                fireEvent.click(botaoTransacao)
+            });
+        })
     })
-})
