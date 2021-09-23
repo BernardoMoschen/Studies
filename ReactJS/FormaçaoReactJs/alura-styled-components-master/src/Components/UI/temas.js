@@ -10,7 +10,7 @@ export const temaClaro = {
   text: textoFundoClaro,
 }
 
-export const temaEscura = {
+export const temaEscuro = {
   body: fundoEscuro,
   inside: conteudoEscuro,
   text: textoFundoEscuro,
