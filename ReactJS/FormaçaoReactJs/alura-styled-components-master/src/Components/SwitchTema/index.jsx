@@ -1,6 +1,6 @@
 import React from 'react'
-import ThemeOn from  '../../assets/images/themOn.svg'
-import ThemeOff from  '../../assets/images/themOff.svg'
+import ThemeOn from  '../../assets/images/themeOn.svg'
+import ThemeOff from  '../../assets/images/themeOff.svg'
 import { Icone } from '../UI/index'
 
 
