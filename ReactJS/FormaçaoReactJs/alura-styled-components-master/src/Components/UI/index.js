@@ -4,6 +4,11 @@ export const Icone = styled.img`
 height: 25px;
 width: 25px;
 `
+
+export const IconeTema = styled(Icone)`
+filter:${({theme}) => theme.filter}
+`
+
 export const Box = styled.div`
 display: flex;
 flex-direction: column;
